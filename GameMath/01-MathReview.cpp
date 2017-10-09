@@ -39,5 +39,8 @@ int main()
 	y = (x * 2) + (2 * x) - 7;
 	std::cout << y << std::endl;
 
+	std::cout << std::endl;
+
+
 	system("pause");
 }
