@@ -36,7 +36,7 @@ int main()
 	std::cout << degree << std::endl;
 
 	std::cout << std::endl;
-	y = (x * 2) + (2 * x) - 7;
+	y = (x * x) + (2 * x) - 7;
 	std::cout << y << std::endl;
 
 	std::cout << std::endl;
