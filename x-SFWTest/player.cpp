@@ -8,19 +8,19 @@ void Player::update()
 
 	if (sfw::getKey('W'))
 	{
-		movement.y += 1;
+		movement.y += 2;
 	}
 	if (sfw::getKey('A'))
 	{
-		movement.x -= 1;
+		movement.x -= 2;
 	}
 	if (sfw::getKey('S'))
 	{
-		movement.y -= 1;
+		movement.y -= 2;
 	}
 	if (sfw::getKey('D'))
 	{
-		movement.x += 1;
+		movement.x += 2;
 	}
 
 	pos += movement;
@@ -28,5 +28,5 @@ void Player::update()
 
 void Player::draw()
 {
-	sfw::drawCircle(pos.x, pos.y, 30.f);
+	sfw::drawCircle(pos.x, pos.y, 20.f);
 }
