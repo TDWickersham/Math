@@ -1,5 +1,6 @@
 #include "mathutils.h"
 #include "Vec2.h"
+#include "Vec3.h"
 #include <iostream>
 
 int main()
@@ -26,7 +27,18 @@ int main()
 	bool eq = num == test;
 	bool ieq = num == testB;
 
-
+	//vec3 add;
+	//add.x = 7;
+	//add.y = 1;
+	//add.z = 4;
+	//vec3 radd;
+	//radd.x = 3;
+	//radd.y = 2;
+	//radd.z = 1;
+	//vec3 aRes = add + radd;
+	//std::cout << aRes.x << std::endl;
+	//std::cout << aRes.y << std::endl;
+	//std::cout << aRes.z << std::endl;
 
 	system("pause");
 }
