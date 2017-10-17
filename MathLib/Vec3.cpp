@@ -87,6 +87,15 @@ vec3 operator/=(vec3 & lhs, const float & rhs)
 	return lhs;
 }
 
+bool operator!=(const vec3 & lhs, const vec3 & rhs)
+{
+	if (abs(lhs.x - rhs.x) < FLT_EPSILON && abs(lhs.y - rhs.y) < FLT_EPSILON && abs(lhs.z - rhs.z) < FLT_EPSILON)
+	{
+		return false;
+	}
+	return true;
+}
+
 float & vec3::operator[](unsigned idx)
 {
 	return v[idx];

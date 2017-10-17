@@ -34,3 +34,5 @@ vec3 operator-=(vec3 &lhs, const vec3 &rhs);
 vec3 operator*=(vec3 &lhs, const float &rhs);
 
 vec3 operator/=(vec3 &lhs, const float &rhs);
+
+bool operator!=(const vec3 &lhs, const vec3 &rhs);
