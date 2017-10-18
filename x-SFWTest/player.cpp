@@ -4,7 +4,7 @@
 
 void Player::update()
 {
-	Vec2 movement = { 0,0 };
+	vec2 movement = { 0,0 };
 
 	if (sfw::getKey('W'))
 	{

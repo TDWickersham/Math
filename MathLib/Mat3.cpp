@@ -3,17 +3,26 @@
 
 mat3 operator+(const mat3 &A, const mat3 &B)
 {
-	return mat3{ A[0] + B[0],
-		A[1] + B[1],
-		A[2] + B[2] };
-}
+	mat3 returnValue;
 
+	for (int i = 0; i < 9; ++i)
+	{
+		returnValue.m[i] = A.m[i] + B.m[i];
+	}
+
+	return returnValue;
+}
 
 mat3 operator-(const mat3 &A, const mat3 &B)
 {
-	return mat3{ A[0] - B[0],
-		A[1] - B[1],
-		A[2] - B[2] };
+	mat3 returnValue;
+
+	for (int i = 0; i < 9; ++i)
+	{
+		returnValue.m[i] = A.m[i] - B.m[i];
+	}
+
+	return returnValue;
 }
 
 
@@ -35,8 +44,8 @@ mat3 transpose(const mat3 &A)
 	//return retval;
 
 	return mat3{ A[0][0], A[1][0], A[2][0],
-		A[0][1], A[1][1], A[2][1],
-		A[0][2], A[1][2], A[2][2] };
+				 A[0][1], A[1][1], A[2][1],
+				 A[0][2], A[1][2], A[2][2] };
 }
 
 
@@ -121,3 +130,24 @@ mat3 rotate(float deg)
 	return mat3{ cos(rad), sin(rad), 0, // x-axis
 		-sin(rad), cos(rad), 0, // y-axis
 		0,        0, 1 };
+}
+
+vec3 & mat3::operator[](size_t idx)
+{
+	return c[idx];
+}
+
+const vec3 & mat3::operator[](size_t idx) const
+{
+	return c[idx];
+}
+
+mat3 mat3::identity()
+{
+	return mat3{ 1, 0, 0, 0, 1, 0, 0, 0, 1 };
+}
+
+mat3 mat3::zero()
+{
+	return mat3{0, 0, 0, 0, 0, 0, 0, 0, 0};
+}

@@ -12,14 +12,15 @@ vp = v * D * C * B * A // row major
 */
 union mat3
 {
+	vec3  c[3];
 	float m[9];
 	float mm[3][3]; // [col(y)][row(x)]
-	vec3  c[3];
 
 	vec3 &operator[](size_t idx); // column accessor
 	const vec3 &operator[](size_t idx) const;
 
 	static mat3 identity(); // creates and returns an identity matrix.
+	static mat3 zero();
 };
 
 mat3 operator+(const mat3 &A, const mat3 &B); // not really used O__O
@@ -28,11 +29,19 @@ mat3 operator-(const mat3 &A, const mat3 &B); // not really used O__O
 mat3 operator*(const mat3 &A, const mat3 &B); // combine transformations
 vec3 operator*(const mat3 &A, const vec3 &V); // apply a transformation
 
+bool operator==(const mat3 &A, const mat3 &B);
+
 mat3 transpose(const mat3 &A); // flip the rows and columns!
 
 							   // Unknowns!
 float determinant(const mat3 &A);
 mat3 inverse(const mat3 &A);
+
+mat3 translate(const vec2 &t);
+
+mat3 scale(const vec2 &s);
+
+mat3 rotate(float deg);
 
 /*
 [1 0 x]
