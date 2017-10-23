@@ -11,3 +11,8 @@ public:
 	void update(const mat3 &t);
 	void draw(const mat3 &t);
 };
+
+class bullet
+{
+
+};

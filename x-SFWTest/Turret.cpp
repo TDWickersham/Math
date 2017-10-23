@@ -30,5 +30,5 @@ void turret::update(const mat3 &t)
 
 void turret::draw(const mat3 &t)
 {
-	sfw::drawCircle(t[2].x, t[2].y, 15);
+	sfw::drawCircle(t[2].x, t[2].y, 15); 
 }
