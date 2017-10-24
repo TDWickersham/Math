@@ -3,14 +3,14 @@
 
 enemy::enemy()
 {
-	speed = 4;
+	speed = 2;
 	radius = 20;
 	enabled = false;
 }
 
 void enemy::update()
 {
-	dir = norm(move.position - dest);
+	dir = norm(dest - move.position);
 	move.position += (dir * speed);
 }
 

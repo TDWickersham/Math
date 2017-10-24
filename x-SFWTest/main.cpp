@@ -6,11 +6,12 @@
 #include "enemy.h"
 #include <random>
 #include <cmath>
+#include <ctime>
 
 int main()
 {
 	sfw::initContext();
-
+	srand(time(NULL));
 	turret myTurret(1, vec2{ 400,20 }, vec2{2,2}, 0);
 
 	enemy minion[20];
@@ -36,13 +37,21 @@ int main()
 				if (minion[i].enabled == false)
 				{
 				
+					/*            10, 42 : 32, 0-31+10 = 10-41
+						int randRange(int min, int max) :
+							return rand() % (max - min) + min
+					*/					
+						
+
 					float y = 620;
-					float x = rand & 800;
+					float x = rand() %  800;
 					//set the position
-					minion.position = vec2{ x,y };
+					minion[i].move.position = vec2{ x,y };
 					// position = vec2{x,y};
 					//set the dest, which is the turrets position
+					minion[i].dest = { 400,20 };
 					//enable the minion
+					minion[i].enabled = true;
 					break;
 				}
 			}
