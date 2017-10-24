@@ -1,7 +1,7 @@
 #pragma once
 
 #include "transform.h"
-
+#include "Turret.h"
 
 class enemy
 {
@@ -16,4 +16,6 @@ public:
 	enemy();
 	void update();
 	void draw();
+	bool checkCollision(bullet b);
+	bool checkCollision(turret t);
 };

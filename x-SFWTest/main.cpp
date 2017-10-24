@@ -6,6 +6,7 @@
 #include "enemy.h"
 #include <random>
 #include <cmath>
+#include <iostream>
 #include <ctime>
 
 int main()
@@ -60,6 +61,24 @@ int main()
 
 		}
 
+		for (int i = 0; i < 100; i++)
+		{
+			if (myTurret.pow[i].enabled == true)
+			{
+				for (int j = 0; j < 20; j++)
+				{
+					if (minion[j].enabled == true)
+					{
+						if (minion[j].checkCollision(myTurret.pow[i]))
+						{
+							myTurret.pow[i].enabled = false;
+							minion[j].enabled = false;
+						}
+					}
+				}
+			}
+		}
+
 
 
 		for (int i = 0; i < 20; i++)
@@ -68,6 +87,10 @@ int main()
 			{
 				minion[i].update();
 				minion[i].draw();
+				if (minion[i].checkCollision(myTurret))
+				{
+					std::cout << "You died" << std::endl;
+				}
 			}
 		}
 

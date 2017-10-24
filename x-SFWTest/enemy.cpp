@@ -18,3 +18,27 @@ void enemy::draw()
 {
 	sfw::drawCircle(move.position.x, move.position.y, radius);
 }
+
+bool enemy::checkCollision(bullet b)
+{
+	if (dist(move.position, b.zoom.position) < radius + b.radius)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool enemy::checkCollision(turret t)
+{
+	if (dist(move.position, t.twist.position) < radius + t.radius)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}

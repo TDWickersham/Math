@@ -51,7 +51,7 @@ void turret::update(const mat3 &t)
 
 void turret::draw(const mat3 &t)
 {
-	sfw::drawCircle(t[2].x, t[2].y, 15); 
+	sfw::drawCircle(t[2].x, t[2].y, radius); 
 	for (int i = 0; i < 100; i++)
 	{
 		if (pow[i].enabled == true)
@@ -73,5 +73,5 @@ void bullet::update()
 
 void bullet::draw()
 {
-	sfw::drawCircle(zoom.position.x, zoom.position.y, 2);
+	sfw::drawCircle(zoom.position.x, zoom.position.y, radius);
 }
