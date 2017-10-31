@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="enemy.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="rigidbody.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="Turret.h" />
   </ItemGroup>
