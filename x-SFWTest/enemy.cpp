@@ -7,6 +7,7 @@ enemy::enemy()
 	radius = 20;
 	enabled = false;
 	move.e_parent = nullptr;
+	hit.box.extents = { 9,9 };
 }
 
 void enemy::update()

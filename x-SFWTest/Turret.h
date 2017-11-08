@@ -1,12 +1,14 @@
 #pragma once
 
 #include "transform.h"
+#include "collider.h"
 
 class bullet
 {
 
 public:
 	bool enabled;
+	collider hit;
 	Transform zoom;
 	vec2 dir;
 	float lifeTime = 5;
@@ -19,6 +21,7 @@ public:
 class turret
 {
 public:
+	collider hurt;
 	Transform twist;
 	float radius = 15;
 	float rotationSpeed;

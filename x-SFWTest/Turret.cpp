@@ -10,6 +10,7 @@ turret::turret(float rotSpeed, vec2 pos, vec2 scale, float angle)
 	for (int i = 0; i < 100; i++)
 	{
 		pow[i].enabled = false;
+		pow[i].hit.box.extents = { 5,5 };
 	}
 }
 

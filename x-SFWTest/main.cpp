@@ -21,7 +21,7 @@ int main()
 	enemy minion[20];
 	autoTurret ally;
 	ally.move.position = vec2{ 370, 20 };
-	ally.col.box.extents = vec2{ 1,1 };
+	ally.col.box.extents = vec2{ 350,350 };
 	mons wallet;
 
 	Transform myBaby;
@@ -68,14 +68,14 @@ int main()
 
 			
 		}
-		ally.col.debugDraw(ally.move, WHITE);
+		ally.col.debugDraw(ally.move, RED);
 		DrawMatrix(ally.move.getGlobalTransform(), 40);
 		for (int j = 0; j < 20; j++)
 		{
 			minion[j].hit.debugDraw(minion[j].move, MAGENTA);
 			if (intersect_AABB(minion[j].hit.box, ally.col.box).penetrationDepth > 0)
 			{
-				wallet.money += 5;
+				//wallet.money += 5;
 			}
 		}
 		for (int i = 0; i < 100; i++)
@@ -86,13 +86,19 @@ int main()
 				{
 					if (minion[j].enabled == true)
 					{
-						
-						if (minion[j].checkCollision(myTurret.pow[i]))
+						myTurret.pow[i].hit.debugDraw(myTurret.pow[i].zoom, CYAN);
+ 						if (intersect_AABB(minion[j].hit.getGlobalBox(minion[j].move), myTurret.pow[i].hit.getGlobalBox(myTurret.pow[i].zoom)).penetrationDepth > 0)
 						{
 							myTurret.pow[i].enabled = false;
 							minion[j].enabled = false;
-							//wallet.money += 5;
+							wallet.money += 5;
 						}
+						/*if (minion[j].checkCollision(myTurret.pow[i]))
+						{
+							myTurret.pow[i].enabled = false;
+							minion[j].enabled = false;
+							wallet.money += 5;
+						}*/
 					}
 				}
 			}
