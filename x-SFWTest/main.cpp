@@ -22,6 +22,7 @@ int main()
 	autoTurret ally;
 	ally.move.position = vec2{ 370, 20 };
 	ally.col.box.extents = vec2{ 350,350 };
+	
 	mons wallet;
 
 	Transform myBaby;
@@ -36,7 +37,8 @@ int main()
 		float t = sfw::getDeltaTime();
 		timer -= t;
 		wallet.draw();
-
+		//ally.update();
+		//ally.draw();
 		if (timer < 0)
 		{
 			timer = 1;
@@ -70,6 +72,10 @@ int main()
 		}
 		ally.col.debugDraw(ally.move, RED);
 		DrawMatrix(ally.move.getGlobalTransform(), 40);
+		for (int i = 0; i < 20; i++)
+		{
+			ally.dir = norm(ally.move.position - minion[i].move.position);
+		}
 		for (int j = 0; j < 20; j++)
 		{
 			minion[j].hit.debugDraw(minion[j].move, MAGENTA);

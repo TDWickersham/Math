@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Auto.cpp" />
     <ClCompile Include="collider.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="draw.cpp" />
