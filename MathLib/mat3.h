@@ -52,3 +52,6 @@ mat3 rotate(float deg);
 [(2,0) (2,1) (2,2)]
 [c1 c2 c3]
 */
+
+vec2 mulPos(const mat3 &M, const vec2 &v);
+vec2 mulDir(const mat3 &M, const vec2 &v);

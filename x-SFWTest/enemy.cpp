@@ -6,6 +6,7 @@ enemy::enemy()
 	speed = 2;
 	radius = 20;
 	enabled = false;
+	move.e_parent = nullptr;
 }
 
 void enemy::update()

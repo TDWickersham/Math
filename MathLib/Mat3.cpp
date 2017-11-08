@@ -151,3 +151,12 @@ mat3 mat3::zero()
 {
 	return mat3{0, 0, 0, 0, 0, 0, 0, 0, 0};
 }
+
+vec2 mulPos(const mat3 &M, const vec2 &v)
+{
+	return (M * vec3{ v.x, v.y, 1 }).xy;
+}
+vec2 mulDir(const mat3 &M, const vec2 &v)
+{
+	return (M * vec3{ v.x, v.y, 0 }).xy;
+}

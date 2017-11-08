@@ -8,14 +8,21 @@
 #include <cmath>
 #include <iostream>
 #include <ctime>
+#include "mons.h"
+#include "Auto.h"
+#include "Collision.h"
 
 int main()
 {
 	sfw::initContext();
 	srand(time(NULL));
 	turret myTurret(1, vec2{ 400,20 }, vec2{2,2}, 0);
-
+	
 	enemy minion[20];
+	autoTurret ally;
+	ally.move.position = vec2{ 370, 20 };
+	ally.col.box.extents = vec2{ 1,1 };
+	mons wallet;
 
 	Transform myBaby;
 	myBaby.position = vec2{ 0, 10 };
@@ -28,6 +35,7 @@ int main()
 		//Rotate your object around clockwise
 		float t = sfw::getDeltaTime();
 		timer -= t;
+		wallet.draw();
 
 		if (timer < 0)
 		{
@@ -58,9 +66,18 @@ int main()
 			}
 
 
-
+			
 		}
-
+		ally.col.debugDraw(ally.move, WHITE);
+		DrawMatrix(ally.move.getGlobalTransform(), 40);
+		for (int j = 0; j < 20; j++)
+		{
+			minion[j].hit.debugDraw(minion[j].move, MAGENTA);
+			if (intersect_AABB(minion[j].hit.box, ally.col.box).penetrationDepth > 0)
+			{
+				wallet.money += 5;
+			}
+		}
 		for (int i = 0; i < 100; i++)
 		{
 			if (myTurret.pow[i].enabled == true)
@@ -69,10 +86,12 @@ int main()
 				{
 					if (minion[j].enabled == true)
 					{
+						
 						if (minion[j].checkCollision(myTurret.pow[i]))
 						{
 							myTurret.pow[i].enabled = false;
 							minion[j].enabled = false;
+							//wallet.money += 5;
 						}
 					}
 				}

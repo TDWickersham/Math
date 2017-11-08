@@ -153,3 +153,19 @@ vec2 max(const vec2 &a, const vec2 &b)
 
 	return temp;
 }
+
+vec2 snap(const vec2 & a_min, const vec2 & a_val, const vec2 & a_max)
+{
+	return vec2{ snap(a_min.x, a_val.x, a_max.x),
+		snap(a_min.y, a_val.y, a_max.y) };
+}
+
+vec2 reflect(const vec2 & v, const vec2 & axis)
+{
+	return 2 * project(v, axis) - v;
+}
+
+vec2 project(const vec2 & v, const vec2 & axis)
+{
+	return dot(v, axis) * axis;
+}

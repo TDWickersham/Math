@@ -2,11 +2,13 @@
 
 #include "transform.h"
 #include "Turret.h"
+#include "collider.h"
 
 class enemy
 {
 public:
 	float radius;
+	collider hit;
 	Transform move;
 	bool enabled;
 	vec2 dir;

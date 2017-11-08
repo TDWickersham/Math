@@ -126,16 +126,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="collider.cpp" />
+    <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="draw.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mons.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="shapes.cpp" />
     <ClCompile Include="transform.cpp" />
     <ClCompile Include="Turret.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Auto.h" />
+    <ClInclude Include="collider.h" />
+    <ClInclude Include="Collision.h" />
+    <ClInclude Include="draw.h" />
     <ClInclude Include="enemy.h" />
+    <ClInclude Include="mons.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="rigidbody.h" />
+    <ClInclude Include="shapes.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="Turret.h" />
   </ItemGroup>
