@@ -72,16 +72,37 @@ int main()
 		}
 		ally.col.debugDraw(ally.move, RED);
 		DrawMatrix(ally.move.getGlobalTransform(), 40);
+		ally.update();
+		ally.draw();
 		for (int i = 0; i < 20; i++)
 		{
-			ally.dir = norm(ally.move.position - minion[i].move.position);
+			doCollision(ally, minion[i]);
 		}
+		
 		for (int j = 0; j < 20; j++)
 		{
 			minion[j].hit.debugDraw(minion[j].move, MAGENTA);
 			if (intersect_AABB(minion[j].hit.box, ally.col.box).penetrationDepth > 0)
 			{
-				//wallet.money += 5;
+				for (int i = 0; i < 100; i++)
+				{
+					if (ally.pow[i].enabled == true)
+					{
+						for (int j = 0; j < 20; j++)
+						{
+							if (minion[j].enabled == true)
+							{
+								ally.pow[i].hit.debugDraw(ally.pow[i].zoom, CYAN);
+								if (intersect_AABB(minion[j].hit.getGlobalBox(minion[j].move), ally.pow[i].hit.getGlobalBox(ally.pow[i].zoom)).penetrationDepth > 0)
+								{
+									ally.pow[i].enabled = false;
+									minion[j].enabled = false;
+									wallet.money += 5;
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 		for (int i = 0; i < 100; i++)
